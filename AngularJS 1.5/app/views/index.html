@@ -1,0 +1,65 @@
+<header id="internalHeader" class="blueHeader">
+  <div id="skiptocontent"><a href="#maincontent">skip navigation</a></div>
+  <div class="container">
+    <div class="capital_image">
+      <a href="https://pulse.kdc.capitalone.com/welcome"><img class="capitalOneImg"
+                src="images/capital_one_logo_white.png" alt="Capital One logo" /></a>&nbsp;
+    </div>
+
+    <a href="javascript:void(0)" class="log_out pull-right" data-toggle="modal" data-target=".bs-example-modal-sm"> <span
+            class="glyphicon glyphicon-lock" aria-hidden="true"></span>&nbsp;Sign Out
+        </a>
+
+    <div class="modal bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="text-center">Sign Out</h4>
+          </div>
+          <div class="modal-body logout-modal-content"> Are you sure you want to log out?</div>
+          <div class="modal-footer">
+            <a href="https://pulse.kdc.capitalone.com/welcome" class="btn btn-primary btn-block logout-btn" id="load" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Sign Out">Sign Out</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</header>
+<div id="wrap">
+  <div ng-controller="policyRuleCtrl">
+    <notifications-bar class="notifications" closeIcon="fa fa-times-circle"></notifications-bar>
+    <div class="org-header1">
+      <div class="container">
+        <div ng-include="'views/existingContainerVerison.html'"></div>
+      </div>
+    </div>
+    <div>
+      <div id="tabs" class="row">
+        <div class="org-header2">
+          <ul class="nav nav-tabs tabs-border-bottom container">
+            <li ng-repeat="tab in tabs" class="col-md-2 tabs-border lead hover-tabs" ui-sref-active="active">
+              <a ui-sref="{{tab.state}}">{{tab.title}}</a>
+            </li>
+          </ul>
+        </div>
+        <div id="mainView" class="container">
+          <ui-view></ui-view>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<footer id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 center-text">
+        <a class="logo" href="https://pulse.kdc.capitalone.com/welcome">
+                <img class="footer-cap-logo" src="images/cof_logo.png"	alt="Capital One logo" /> </a>
+        <p class="copyright">&#169;&nbsp;&nbsp;2017 Capital One. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>

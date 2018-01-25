@@ -1,0 +1,119 @@
+<!-- ******  Please do not delete below code - this is working code and already integrated with backend service ****** -->
+
+<div class="modal fade" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+	      <div class="modal-header">
+	        <h4 class="modal-title">
+	          <div class="panel panel-info text-center">
+		      	<div class="panel-heading">Please select Container and Version.</div>
+		      </div>
+	        </h4>
+	      </div>
+      
+      <div class="modal-body">
+        <div ng-show="selectedContainerVersionTemplate">
+          <div id="attr-block">
+            <div class="form-horizontal cont-ver-block">
+              <form name="mainForm" novalidate>
+                <div class="form-group">
+                  <label for="InputStatus" class="col-xs-3">Container :</label>
+                  <div class="col-xs-6">
+                    <select name="selectContainerName" class="form-control" ng-model="selectedContainerId" ng-change="displayVersions()" required>
+                      <option value="" disabled selected>Please Select</option>
+                      <option ng-repeat="option in containerIdVersionArray" value="{{option.containerId}}">{{option.containerName}}</option>
+                    </select>
+                    <div class="error" ng-show="mainForm.selectContainerName.$error.required">Please Select Container</div>
+                  </div>
+                  
+                  <!-- <span><a href="javascript:void(0)" ng-click="addNewContainerLink()"> Add Container </a></span> -->
+                </div>
+
+                <div class="form-group" ng-show="selectedContainerId != null">
+                  <label for="InputValType" class="col-xs-3">Version :</label>
+                  <div class="col-xs-6">
+                    <select name="selectVersionName" class="form-control" ng-model="selectedContainerVersion" required>
+                      <option value="" disabled selected>Please Select</option>
+                      <option ng-repeat="ver in selectedItem[0].versions" value="{{ver}}">{{ver}}</option>
+                    </select>
+                    <div class="error" ng-show="mainForm.selectVersionName.$error.required">Please Select Version</div>
+                  </div>
+                  <!-- <span><a href="javascript:void(0)" ng-click="addVersionLink()"> Add Version</a></span> -->
+                </div>
+              </form>
+            </div>
+
+            <div class="modal-footer">
+              <div class="text-center">
+                <button type="button" ng-disabled="!mainForm.$valid" ng-click="selectBtn()" class="btn btn-primary">Select</button>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!--   START - version temp  -->
+
+         <!--  <div ng-show="addSelectedVersionTemplate">
+				       	<h4 class="modal-title"> 
+				       		<div class="panel panel-info text-center">
+					      		<div class="panel-heading">Please select Container and Version.</div>
+					      	</div>
+				       	</h4>
+				          <div id="attr-block" class="cont-ver-block">
+							<div class="form-horizontal">
+									<form name="VerForm" novalidate autocomplete="off">
+
+										  <div  class="form-group" style="margin-bottom: 20px;">
+										    <label class="col-xs-4">Container Name : </label>
+										     <div class="col-xs-7"> {{contName}} </div>
+									 	  </div>
+
+										  <div  class="form-group">
+											    <label for="InputName" class="col-xs-4">Version : </label>
+											     <div class="col-xs-7">
+											     	<input name="verName" type="text" class="form-control" ng-model="verObj.version"  required
+											     			ng-pattern="/^\d{0,9}(\d\.\d\.\d)?\d?$/"  ng-trim="false" ng-change="verObj.version = verObj.version.split(' ').join('')"/>
+											     		<span class="error" ng-show="VerForm.verName.$error.required">Please Add Version (Ex: 1.0.0)</span>
+											     		<span class="error" ng-show="VerForm.verName.$error.pattern">Invalid! Please add number and dot only. (Ex: 1.0.0)</span>
+											     </div>
+										 </div>
+
+									  	  <div  class="form-group">
+										    <label for="InputName" class="col-xs-4" >Status :</label>
+											     <div class="col-xs-7">
+												     <select name="verStatus" class="form-control" ng-model="verObj.status" required>
+												      	  <option ng-repeat="verStatus in verStatusTypes" value="{{verStatus.id}}">{{verStatus.name}}</option>
+												      </select>
+												      <div class="error" ng-show="VerForm.verStatus.$error.required">Please Add Version Status</div>
+											     </div>
+										  </div>
+
+										  <div  class="form-group">
+										    <label for="InputName"  class="col-xs-4"  >Description : </label>
+										     <div class="col-xs-7">
+										     	<input name="verDesc" type="text" class="form-control" ng-model="verObj.desc" required/>
+										     		<div class="error" ng-show="VerForm.verDesc.$error.required">Please Add Version description</div>
+										     </div>
+										  </div>
+
+									</form>
+								 </div>
+
+								   <div class="modal-footer">
+								   			<div class="text-center"><button type="button" ng-disabled="!VerForm.$valid" ng-click="addNewVersion()" class="btn btn-primary">Version</button></div>
+              						</div>
+
+						 </div>
+
+				        </div>  -->
+
+        <!--   END - version temp  -->
+
+      </div>
+
+    </div>
+  </div>
+</div>

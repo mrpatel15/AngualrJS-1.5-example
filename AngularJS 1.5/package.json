@@ -1,0 +1,82 @@
+{
+  "name": "core-admin-client-ui",
+  "description": "UI for internal Application of CapitalOne",
+  "license": "ISC",
+  "version": "2.2.35",
+  "dependencies": {
+    "angular": "1.5.3",
+    "angular-animate": "1.5.0",
+    "angular-aria": "1.5.3",
+    "angular-backtop": "0.0.1",
+    "angular-cookies": "1.5.0",
+    "angular-mocks": "1.5.0",
+    "angular-modal-service": "0.6.10",
+    "angular-resource": "1.5.3",
+    "angular-route": "1.5.0",
+    "angular-sanitize": "1.5.0",
+    "angular-touch": "1.5.0",
+    "@uirouter/angularjs": "1.0.3",
+    "bootstrap": "^3.3.6",
+    "font-awesome": "^4.6.3",
+    "graceful-fs": "^4.1.5",
+    "gulp": "^3.9.0",
+    "gulp-bower": "^0.0.13",
+    "gulp-bump": "^2.1.0",
+    "gulp-clean": "^0.3.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-css": "^0.1.0",
+    "gulp-filter": "^4.0.0",
+    "gulp-gzip": "^1.2.0",
+    "gulp-html-minify": "^0.0.14",
+    "gulp-install": "^0.6.0",
+    "gulp-jsmin": "^0.1.5",
+    "gulp-rename": "^1.2.2",
+    "gulp-sequence": "^0.4.5",
+    "gulp-tar": "^1.9.0",
+    "gulp-uglify": "^2.0.0",
+    "gulp-watch": "^4.3.5",
+    "gulp-webserver": "^0.9.1",
+    "http-proxy-middleware": "^0.17.4",
+    "jquery": "^2.2.1",
+    "ng-csv": "0.3.6",
+    "ng-notifications-bar": "0.0.16",
+    "ngstorage": "0.3.10",
+    "proxy-middleware": "^0.15.0",
+    "pump": "^1.0.2",
+    "rimraf": "^2.5.1",
+    "run-sequence": "^1.1.5"
+  },
+  "devDependencies": {
+    "jasmine-core": "^2.6.2",
+    "karma": "^0.13.2",
+    "karma-chrome-launcher": "^0.2.0",
+    "karma-cli": "^0.1.0",
+    "karma-firefox-launcher": "^0.1.6",
+    "karma-jasmine": "^1.1.0",
+    "karma-junit-reporter": "^1.2.0",
+    "karma-html-reporter": "~0.1"
+  },
+  "engines": {
+    "node": ">=6.10.3",
+    "npm": ">=3.10.10"
+  },
+  "scripts": {
+    "deploy": "gulp deploy",
+    "gulp": "gulp",
+    "development": "gulp",
+    "test": "gulp production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.kdc.capitalone.com/DigitalSecurity/rule-engine-ui-client.git"
+  },
+  "main": "gulpfile.js",
+  "directories": {
+    "build": "build"
+  },
+  "email": "mrugeshkumar.patel@capitalone.com",
+  "author": "MQS618",
+  "bin": {
+    "core-admin-client-ui": "gulpfile.js"
+  }
+}

@@ -1,0 +1,44 @@
+<div>
+  <div>
+    <h4>
+      <alert></alert>
+    </h4>
+    <div class="row">
+      <div class="col-sm-4">
+        <table class="table table-striped box-shadow--2dp table-bg rules">
+          <thead>
+            <tr>
+              <td class="col-sm-10">
+                <h5>Name</h5>
+              </td>
+              <td class="col-sm-2">
+                <h5>Priority</h5>
+              </td>
+            </tr>
+          </thead>
+          <tbody ui-sref-active="active">
+            <tr ng-repeat="item in ctrl.RulesService.rules" class="hover-element" ng-show="item.visible" ui-sref="rules.detail({
+              id: item.id,
+              ruleSetEle: item,
+              newRuleSet: false,
+              modalType: 'edit',
+              creatUrl: '~'
+              })">
+              <td class="col-sm-10">
+                <span style="padding-left: {{item.level * 30}}px;" class="break-line">
+                <span class="glyphicon" ng-click="ctrl.toggleVisibility(item);$event.stopPropagation()"
+                  ng-class="{'glyphicon-minus': !item.leaf && item.expanded, 'glyphicon-plus': !item.leaf && !item.expanded}">
+                </span>&nbsp; {{item.name}}
+                </span>
+              </td>
+              <td class="col-sm-2">{{item.priority}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-sm-8">
+        <ui-view></ui-view>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+<!-- ******  Please do not delete below code - this is working code and already integrated with backend service ****** -->
+
+<div ng-controller="rulesTypeCtrl">
+	<div id="viewRulesType"  >
+ 			<h4><alert></alert></h4>		
+			      <div class="row ">
+			        <table class="table table-bordered table-striped box-shadow--2dp table-bg">
+			          <thead>
+			            <tr>
+			              <th>Name</th>
+			              <th>Id</th>
+			              <th>Description</th>
+			              <th>Status</th>
+			              <!-- <th>Edit | Delete</th> -->
+			              <!-- <th><button type="submit"  ng-click="addBtn($index)" class="btn btn-primary btn-sm">Add</button></th> -->
+			              <th class="text-center"><a class="btn btn-primary btn-xs" ng-click="addBtn($index)"><span class="glyphicon glyphicon-plus"></span></a></th>
+			            </tr>
+			          </thead>
+			          <tbody>
+				            <tr ng-repeat="rt in rlTypeObj track by $index" ng-hide="rt.hideRow" class="hover-element">
+					              <td class="col-md-3"> 	
+					              		<p class="break-line">{{rt.name}}</p>
+					              </td>
+					              <td class="col-md-2">
+					              	 <p>{{rt.id}}</p>
+					              </td>
+					              <td class="col-md-3">	
+					              		<p class="break-line">{{rt.desc}}</p>
+					              </td>
+					              <td class="col-md-1 text-center"> 
+					              		<p>{{rt.status}}</p>
+					              </td>
+					             
+					             <!--  <td class="col-md-2 text-center">
+										<button type="submit" ng-click="editBtn($index)"  class="btn btn-success btn-sm edit-btn-all">Edit</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										<button type="submit" ng-click="deleteBtn($index)"  ng-if="rt.status == 'ACTIVE'" class="btn btn-danger btn-sm delete-btn">Delete</button>
+										<button type="submit" ng-click="undeleteBtn($index)"  ng-if="rt.status == 'INACTIVE'" class="btn btn-warning btn-sm">Undelete</button>
+									</td> -->
+								   
+								   <td class="col-md-1 text-center">
+	   							 		<a class="btn btn-success btn-xs" ng-click="editBtn($index)"  style="margin-right: 8px;"><span class="glyphicon glyphicon-edit"></span></a>
+	   							 		<a class="btn btn-danger btn-xs" ng-click="deleteBtn($index)" ng-if="rt.status == 'ACTIVE'" style="margin-right: 10px;"><span class="glyphicon glyphicon-remove"></span></a>
+	   							 		<a class="btn btn-warning btn-xs" ng-click="undeleteBtn($index)" ng-if="rt.status == 'INACTIVE'" style="margin-right: 10px;"><span class="glyphicon glyphicon-ok"></span></a>
+								 </td>
+				            </tr>
+				       </tbody>
+				     </table>
+			       			
+			      </div>
+			      <!-- <div class="add-btn-lg">
+			       <button type="submit"  ng-click="addBtn()" class="btn btn-primary btn-sm">Add</button>
+			      </div> -->
+	</div>
+</div>

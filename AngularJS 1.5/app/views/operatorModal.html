@@ -1,0 +1,89 @@
+         <div class="modal fade" data-backdrop="static" data-keyboard="false">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              </div>
+              <div class="modal-body">
+              
+              	 <div id="scroll-wrap">
+			          <div id="opt-block" class="opt-element-block">
+						<div class="form-horizontal">
+						  <form name="optForm" novalidate autocomplete="off">
+							  <div class="form-group">
+							    <label for="InputId" class="col-sm-3" >Id : </label>
+							     <div class="col-sm-8"><input name="optId" type="text" class="form-control" ng-model="optElement.id" 
+							     	ng-trim="false" ng-change="optElement.id = optElement.id.split(' ').join('')" required/>
+							     <span class="error" ng-show="optForm.optId.$error.required">Please add operator Id </span>	
+							     </div>
+							  </div>
+							  
+							   <div  class="form-group">
+							    <label for="InputName" class="col-sm-3" >Name : </label>
+							     <div class="col-sm-8"><input name="optName" type="text" class="form-control" ng-model="optElement.name" required/>
+							     	<span class="error" ng-show="optForm.optName.$error.required">Please add operator name. </span>
+							     </div>
+							  </div>
+							  
+							   <div  class="form-group">
+							    	<label for="Inputdesc" class="col-sm-3" >Desc : </label>	
+				              	 <div class="col-sm-8">	<input name="optDesc" type="text"  class="form-control"  ng-model="optElement.desc" required/>
+				              		 <span class="error" ng-show="optForm.optDesc.$error.required">Please add operator description </span>	
+				              	 </div>
+							   </div>
+							   
+							   <div  class="form-group">
+							    	<label for="InputSymbol" class="col-sm-3" >Symbol : </label>	
+				              	 <div class="col-sm-8">	<input name="optSymbol" type="text"  class="form-control"  ng-model="optElement.symbol" required/>
+				              	 <span class="error" ng-show="optForm.optSymbol.$error.required">Please add operator symbol </span>	
+				              	 </div>
+							   </div>
+							   
+							  
+							  <div  class="form-group">
+							    <label for="InputStatus" class="col-sm-3" >Status :</label>
+								     <div class="col-sm-8">
+									     <select name="optStatus" class="form-control form-control-lg" ng-model="optElement.status" required>
+									      	  <option ng-repeat="option in statusTypes" value="{{option.id}}">{{option.name}}</option>
+									      </select>
+									       <span class="error" ng-show="optForm.optStatus.$error.required">Please add operator status </span>
+								     </div>
+							  </div>
+							  
+							    <div  class="form-group">
+							    	<label for="InputJava" class="col-sm-3" >Class Name : </label>	
+				              	 <div class="col-sm-8">	<input name="optClassName" type="text"  class="form-control"  ng-model="optElement.javaType.className" required/>
+				              	 	 <span class="error" ng-show="optForm.optClassName.$error.required">Please add operator java type className </span>
+				              	 	</div>
+							   </div>
+							   
+							    <div  class="form-group">
+							    	<label for="InputSpring" class="col-sm-3" >Spring Name : </label>	
+				              	 <div class="col-sm-8">	<input name="optSpringName" type="text"  class="form-control"  ng-model="optElement.javaType.springName" required/>
+				              	 <span class="error" ng-show="optForm.optSpringName.$error.required">Please add operator java type springName </span>
+				              	 </div>
+							   </div>
+							   
+							    <div  class="form-group">
+							    	<label for="InputDisplay" class="col-sm-3">Display Format : </label>	
+				              	 <div class="col-sm-8">	<input name="optDisplayFormat" type="text"  class="form-control"  ng-model="optElement.displayFormat" required/>
+				              	 	 <span class="error" ng-show="optForm.optDisplayFormat.$error.required">Please add operator display format. </span>
+				              	 </div>
+							   </div>
+							   <div>
+									<div ng-include="'views/propertiesTemplate.html'"></div>
+							   </div>
+							    </form>
+							   </div>
+						 </div>
+			        </div>
+              		 
+              </div>
+              
+              <div class="modal-footer text-center">
+                <button type="button" class="btn btn-default" ng-click="closeMsg()" data-dismiss="modal">Cancel</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button type="button" ng-disabled="!optForm.$valid" ng-click="saveField()" class="btn btn-primary">Save</button>
+              </div>
+            </div>
+          </div>
+        </div>

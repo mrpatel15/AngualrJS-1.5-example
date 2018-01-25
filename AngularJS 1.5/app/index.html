@@ -1,0 +1,90 @@
+<!--
+ * @ngdoc function
+ * @name Policy Admin UI Rule Engine
+ * @description INDEX.HTML
+ * @Author Mrugesh PATEL - MQS618
+ */ -->
+
+<!DOCTYPE html>
+<html id="ng-app" lang="en" class="no-js">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" CONTENT="no-cache" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta http-equiv="refresh" content="1800" />
+  <meta http-equiv="cache-control" content="max-age=0" />
+  <meta http-equiv="cache-control" content="no-cache" />
+  <meta http-equiv="cache-control" content="no-store" />
+  <meta http-equiv="expires" content="0" />
+  <meta http-equiv="expires" content="-1" />
+
+  <title>Policy Admin Rules Engine</title>
+<!--  
+  <link rel="stylesheet" href="/node_modules/jasmine-core/lib/jasmine-core/jasmine.css" />
+-->
+  <link rel="icon" type="image" href="favicon.ico">
+  <link rel="stylesheet" href="dependencies/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="dependencies/bootstrap/dist/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="dependencies/font-awesome/css/font-awesome.min.css">
+  <!--link rel="stylesheet" href="dependencies/angular-backtop/dist/angular-backtop.css"-->
+  <link rel="stylesheet" href="dependencies/ng-notifications-bar/dist/ngNotificationsBar.min.css">
+
+  <link rel="stylesheet" href="css/app.css">
+
+  <!-- Unit Test -->
+<!--
+  <script src="/node_modules/jasmine-core/lib/jasmine-core/jasmine.js"></script>
+  <script src="/node_modules/jasmine-core/lib/jasmine-core/jasmine-html.js"></script>
+  <script src="/node_modules/jasmine-core/lib/jasmine-core/boot.js"></script>
+-->
+  <!-- Angular dependencies -->
+
+  <script src="dependencies/jquery/dist/jquery.min.js"></script>
+  <script src="dependencies/bootstrap/dist/js/bootstrap.min.js"></script>
+
+  <script src="dependencies/angular/angular.min.js"></script>
+  <script src="dependencies/angular-ui-router/release/angular-ui-router.min.js"></script>
+
+  <script src="dependencies/angular-resource/angular-resource.min.js"></script>
+  <script src="dependencies/angular-aria/angular-aria.min.js"></script>
+  <script src="dependencies/angular-animate/angular-animate.min.js"></script>
+  <script src="dependencies/angular-sanitize/angular-sanitize.min.js"></script>
+  <script src="dependencies/ngStorage/ngStorage.min.js"></script>
+  <script src="dependencies/angular-touch/angular-touch.min.js"></script>
+  <script src="dependencies/angular-cookies/angular-cookies.min.js"></script>
+  <script src="dependencies/angular-modal-service/dst/angular-modal-service.min.js"></script>
+  <script src="dependencies/ng-csv/build/ng-csv.min.js"></script>
+  <script src="dependencies/angular-backtop/dist/angular-backtop.min.js"></script>
+  <script src="dependencies/ng-notifications-bar/dist/ngNotificationsBar.min.js"></script>
+
+  <!-- Application JS -->
+
+  <script type="text/javascript" src="js/app.js"></script>
+  <script type="text/javascript" src="js/controllers/policyRule.js"></script>
+  <script type="text/javascript" src="js/controllers/addNdeleteRecordsModal.js"></script>
+  <script type="text/javascript" src="js/controllers/addNewContainer.js"></script>
+  <script type="text/javascript" src="js/controllers/attributes.js"></script>
+  <script type="text/javascript" src="js/controllers/attrModal.js"></script>
+  <script type="text/javascript" src="js/controllers/configuration.js"></script>
+  <script type="text/javascript" src="js/controllers/confirmModal.js"></script>
+  <script type="text/javascript" src="js/controllers/lists.js"></script>
+  <script type="text/javascript" src="js/controllers/operatorModal.js"></script>
+  <script type="text/javascript" src="js/controllers/operators.js"></script>
+  <script type="text/javascript" src="js/controllers/rules.js"></script>
+  <script type="text/javascript" src="js/controllers/ruleView.js"></script>
+  <script type="text/javascript" src="js/controllers/ruleEdit.js"></script>
+  <script type="text/javascript" src="js/controllers/rulesType.js"></script>
+  <script type="text/javascript" src="js/controllers/rulesTypeModal.js"></script>
+  <script type="text/javascript" src="js/controllers/selectContainerVersion.js"></script>
+  <script type="text/javascript" src="js/services/api.service.js"></script>
+  <script type="text/javascript" src="js/services/rules.service.js"></script>
+  <script type="text/javascript" src="js/services/notification.service.js"></script>
+  <script type="text/javascript" src="js/directives/app.directives.js"></script>
+</head>
+
+<body ng-app="policyApp" ng-cloak>
+  <ng-include src="'views/index.html'"></ng-include>
+</body>
+
+</html>

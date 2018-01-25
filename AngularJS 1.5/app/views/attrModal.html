@@ -1,0 +1,125 @@
+<div class="modal fade" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <!-- <h4 class="modal-title">Edit field here !! </h4>  -->
+            </div>
+            <div class="modal-body">
+
+                <div id="scroll-wrap">
+                    <div id="attr-block" class="attr-element-block">
+                        <div class="form-horizontal">
+                            <form name="attrForm" novalidate autocomplete="off">
+                                <div class="form-group">
+                                    <label for="InputId" class="col-sm-3">Id : </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" name="attrElementId" class="form-control" ng-model="attrElement.id" ng-trim="false" ng-change="attrElement.id = attrElement.id.split(' ').join('')" required/>
+                                        <span class="error" ng-show="attrForm.attrElementId.$error.required">Please add attribute Id </span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="InputName" class="col-sm-3">Name : </label>
+                                    <div class="col-sm-8">
+                                        <input name="attrElementName" type="text" class="form-control" ng-model="attrElement.name" required/>
+                                        <span class="error" ng-show="attrForm.attrElementName.$error.required">Please add attribute name </span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Inputdesc" class="col-sm-3">Desc : </label>
+                                    <div class="col-sm-8">
+                                        <input name="attrElementDesc" type="text" class="form-control" ng-model="attrElement.desc" required/>
+                                        <span class="error" ng-show="attrForm.attrElementDesc.$error.required">Please add attribute description. </span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="InputAttr" class="col-sm-3">Attribute Type : </label>
+                                    <div class="col-sm-8">
+                                        <select name="attrElementAttrType" class="form-control form-control-lg" ng-model="attrElement.attributeType" required>
+                                            <option ng-repeat="option in attrTypes" value="{{option.id}}">{{option.name}}</option>
+                                        </select>
+                                        <span class="error" ng-show="attrForm.attrElementAttrType.$error.required">Please add attribute type. </span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="InputStatus" class="col-sm-3">Status :</label>
+                                    <div class="col-sm-8">
+                                        <select name="attrElementStatus" class="form-control form-control-lg" ng-model="attrElement.status" required>
+                                            <option ng-repeat="option in statusTypes" value="{{option.id}}">{{option.name}}</option>
+                                        </select>
+                                        <span class="error" ng-show="attrForm.attrElementStatus.$error.required">Please add attribute status. </span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="InputValType" class="col-sm-3">Value Type : </label>
+                                    <div class="col-sm-8">
+                                        <select name="attrElementValueType" class="form-control form-control-lg" ng-model="attrElement.valueType" required>
+                                            <option ng-repeat="option in valueTypes" value="{{option.id}}">{{option.name}}</option>
+                                        </select>
+                                        <span class="error" ng-show="attrForm.attrElementValueType.$error.required">Please add attribute value type. </span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="InputJava" class="col-sm-3">Java Type : </label>
+                                    <div class="col-sm-8">
+                                        <input name="attrElementJavaType" type="text" class="form-control" ng-model="attrElement.javaType" required/>
+                                        <span class="error" ng-show="attrForm.attrElementJavaType.$error.required">Please add attribute java type. </span>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="InputExp" class="col-sm-3">Expression : </label>
+                                    <div class="col-sm-8">
+                                        <input name="attrElementExpression" type="text" class="form-control" ng-model="attrElement.expression" required/>
+                                        <span class="error" ng-show="attrForm.attrElementExpression.$error.required">Please add attribute expression. </span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Inputdesc" class="col-sm-3">Display Format : </label>
+                                    <div class="col-sm-8">
+                                        <input name="attrElementDisplay" type="text" class="form-control" ng-model="attrElement.displayFormat" required/>
+                                        <span class="error" ng-show="attrForm.attrElementDisplay.$error.required">Please add display format. </span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="InputValue" class="col-sm-3">Value : </label>
+                                    <div class="col-sm-8">
+                                        <input name="attrElementValue" type="text" class="form-control" ng-model="attrElement.value" required/>
+                                        <span class="error" ng-show="attrForm.attrElementValue.$error.required">Please add attribute value. </span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="attrLog" class="col-sm-3">Loggable : </label>
+                                    <div class="col-sm-8">
+                                        <input type="checkbox" class="checkbox-custom" ng-true-value="'true'" ng-false-value="'false'" ng-model="attrElement.loggable">
+                                    </div>
+                                </div>
+                                                              
+                                <div>
+									<div ng-include="'views/propertiesTemplate.html'"></div>
+							   </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="modal-footer text-center">
+                <button type="button" class="btn btn-default" ng-click="closeMsg()" data-dismiss="modal">Cancel</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button type="button" ng-disabled="!attrForm.$valid" ng-click="saveField()" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

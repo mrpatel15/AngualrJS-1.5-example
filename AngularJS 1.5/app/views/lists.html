@@ -1,0 +1,115 @@
+<div>
+	<h4> <alert></alert> </h4>
+	<!-- <div class="loading" ng-show="dataProcessing">Loading&#8230;</div> -->
+		<div class="row">
+			<div  class="col-sm-2"></div>
+			<!-- <div ng-show="dataExport" class="col-sm-8">
+				<div class="col-sm-1 pull-right">
+					 <label for="export">Export </label>
+			 		<button class="btn btn-default" type="submit" ng-csv="getArray" filename="{{ filename }}.csv"><i class="glyphicon glyphicon-download-alt" aria-hidden="true"></i></button>
+			 	</div>
+			 	
+				<div class="col-sm-3 pull-right">
+		        	<label for="filename">Create filename</label>
+		        	<input type="text" id="filename" class="form-control" ng-model="filename">
+			    </div>&nbsp;&nbsp;&nbsp;&nbsp;
+			</div> -->
+			<form name="dataSetForm" novalidate autocomplete="off">
+				 <div  class="col-sm-2 pull-right" data-tooltip="Please select a list" style="margin-top: 5px;">
+				    <label class="control-label"  for="dropdown" alt="Please Select a List"></label>
+						    <select autofocus id="dropdown" class="form-control" placehoder="Please Select" name="dataSetName" ng-model="selectedItem"  ng-change="fetchDataList()"
+						    		ng-options="selectedItem.id as selectedItem.name for selectedItem in dataType" required>
+						    		<option value="" disabled selected>Please select a list</option>
+						    </select>
+						   <!--    <div class="error" ng-show="dataSetForm.dataSetName.$error.required">Please Select Data Set</div> -->
+				 </div>
+			</form>
+		</div>
+  
+		<div class="row datalist-element box-shadow--2dp table-bg">
+		      <div class="col-sm-2 element-align">
+		        <div class="input-group add-on">
+		          <input type="text" class="form-control search-query" ng-model="query" ng-change="search()" placeholder="Search">
+		          <div class="input-group-btn">
+		            <button class="btn btn-default" type="submit"  style="height: 34px;"><i class="glyphicon glyphicon-search"></i></button>
+		          </div>
+		        </div>
+		     </div>
+		      <div class="col-sm-2 element-align">
+		        	<select class="form-control" ng-model="itemsPerPage" ng-change="perPage()"  ng-options="('Show '+size+' per page') for size in pageSizes"></select>
+		      </div>
+		     <div class="col-sm-4">	</div>
+			  <div class="col-sm-2 text-right">
+		     		 <div class="btn-group btn-toggle element-align">
+					    <button class="btn btn-default" ng-click="changeStatus()">Edit</button>
+					    <button class="btn btn-primary active" ng-click="changeStatus()">Off</button>
+					 </div>
+		     </div>
+			    <div class="col-sm-2 text-center element-align">
+				    <div class="btn-group">
+		                <button class="btn btn-primary" ng-disabled="disableSelect">Manage</button>
+		                <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle" ng-disabled="disableSelect"> <span class="caret"></span></button>
+		                 <ul class="dropdown-menu" role="menu">
+					        <li><a href="javascript:void(0)" ng-click="addRecordsModal()">Add Records</a></li>
+					        <li><a href="javascript:void(0)" ng-click="deleteRecordsModal()">Delete Records</a></li>
+					     </ul>
+	                </div>
+			     	<!-- <div class="btn-group">
+					      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" ng-disabled="disableSelect"> Manage <span class="caret"></span></button>
+					      <ul class="dropdown-menu" role="menu">
+					        <li><a href="javascript:void(0)" ng-click="addRecordsModal()">Add Records</a></li>
+					        <li><a href="javascript:void(0)" ng-click="deleteRecordsModal()">Delete Records</a></li>
+					      </ul>
+					  </div> -->
+			    </div>
+	    </div>
+
+	     <div class="row">
+		    <table class="table table-striped table-hover box-shadow--2dp table-bg">
+		    	 <thead>
+				      <tr class="bg-head">
+				      	<td class="col-sm-1"></td>
+				        <td class="col-sm-9 recordsList"><b>Records</b><span ng-click="sort_by('dataList')" class="glyphicon glyphicon-sort" aria-hidden="true"></span></td>
+				        <!-- <td class="col-sm-2"> <b>Edit | Delete</b></td> -->
+				        <td class="col-sm-2 text-center delete-data"> <b>Delete</b>
+				        	<!-- <b tabindex="0" title="Please click on delete link to remove record from the list." data-toggle="tooltip" data-placement="left">Delete</b> -->
+				        </td>
+				      </tr>
+			     </thead>
+		      <tfoot>
+			        <tr><td colspan="9">{{sizes}}
+			          <div class="text-center">
+			            <ul class="pagination">
+			              <li ng-class="{disabled: currentPage == 0}">
+			                <a href  ng-click="prevPage()"><span aria-hidden="true">&laquo;</span> Prev</a>
+			              </li>
+			              <li ng-repeat="n in range(pagedItems.length) track by $index" ng-class="{active: n == currentPage}">
+							    <a href  ng-bind="n + 1" ng-show="n >= 0" ng-click="setPage(n)">1</a>
+							    <span ng-show="n < 0">...</span>
+						  </li>
+			              <li ng-class="{disabled: currentPage == pagedItems.length - 1}">
+			                <a href  ng-click="nextPage()">Next <span aria-hidden="true">&raquo;</span></a>
+			              </li>
+			            </ul>
+			          </div>
+			        </td>
+			      </tr>
+			  </tfoot>
+
+		      <tbody>
+		        <tr ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder:reverse" class="hover-element">
+		          <td class="col-sm-1"></td>
+		          <td class="col-sm-9">
+		          		<span class="break-line">{{item}} </span>
+		          	</td>
+		           <td class="col-sm-2 text-center">
+		           		  <!-- <a class="btn btn-success btn-xs" ng-click="editItem($index)" style="margin-right: 8px;"><span class="glyphicon glyphicon-edit"></span></a> -->
+						  <!-- ng-hide="status" 	****** Add this flag  below to hide delete button ****  --> 
+						  <a name="deleteSingleData" id="deleteSingleData" ng-hide="status" class="btn btn-danger btn-xs text-right"  ng-click="deleteSingleItem($index)"><span class="glyphicon glyphicon-remove"></span></a>
+		          </td>
+		        </tr>
+		      </tbody>
+		    </table>
+
+		  </div>
+</div>
