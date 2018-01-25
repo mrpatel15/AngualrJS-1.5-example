@@ -37,7 +37,7 @@
     "gulp-watch": "^4.3.5",
     "gulp-webserver": "^0.9.1",
     "http-proxy-middleware": "^0.17.4",
-    "jquery": "^2.2.1",
+    //"jquery": "^2.2.1",
     "ng-csv": "0.3.6",
     "ng-notifications-bar": "0.0.16",
     "ngstorage": "0.3.10",
